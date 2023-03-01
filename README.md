@@ -1,0 +1,2 @@
+# django_flashcard
+Djangoを用いたWebブラウザ上で動作するフラッシュカードアプリ
