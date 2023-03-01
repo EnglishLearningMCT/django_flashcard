@@ -1,3 +1,4 @@
 # django_flashcard
 Djangoを用いたWebブラウザ上で動作するフラッシュカードアプリ
+
 ReadmMeは最終的にちゃんと更新します
