@@ -25,4 +25,9 @@ urlpatterns = [ #各ページのURL, ビュー, 名称を格納するリスト
         views.BoxView.as_view(),
         name="box"
     ),
+    path(   #カード削除
+        "delete/<int:pk>",
+        views.CardDeleteView.as_view(),
+        name="card-delete"
+    ),
 ]

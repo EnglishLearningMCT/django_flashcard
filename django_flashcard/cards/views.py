@@ -8,7 +8,7 @@ from django.views.generic import (
     ListView,
     CreateView,
     UpdateView,
-    #DeleteView,
+    DeleteView,
 )
 
 from .models import Card
@@ -31,10 +31,12 @@ class CardUpdateView(CardCreateView, UpdateView):
     success_url = reverse_lazy("card-list")
 
 #カード削除
-''' class CardDeleteView(DeleteView):
+class CardDeleteView(DeleteView):
     model = Card
-    success_url = reverse_lazy("card-delete")
- '''
+    #template_name = "cards/card_confirm_delete.html"
+    success_url = reverse_lazy('card-list')
+    
+
 #ボックス
 class BoxView(CardListView):
     template_name = "cards/box.html"
@@ -63,5 +65,5 @@ class BoxView(CardListView):
             #解けたかどうか(solvedの値)によってカードを適切なボックスへ移動
             card.move(form.cleaned_data["solved"])
 
-         #リクエストを投稿したページと同じページにリダイレクト(チェックセッションへ戻る)
+        #リクエストを投稿したページと同じページにリダイレクト(チェックセッションへ戻る)
         return redirect(request.META.get("HTTP_REFERER"))
