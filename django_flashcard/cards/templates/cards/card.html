@@ -2,9 +2,10 @@
    <h4>{{ card.question }}</h4>
    {% if not check_card %}
       <p>{{ card.answer }}</p>
+      <p>{{ card.parts_of_speech }}</p>
       <hr/>
       <a href="{% url 'card-update' card.id %}" role="button">
-         ✏️ Edit Card
+         ✏ Edit Card
       </a>
       <a href="{% url 'card-delete' card.id %}" role="button" style="position: relative; left: 10px;">
          ❌ Delete Card
@@ -13,6 +14,7 @@
         <details>
             <summary>Reveal Answer</summary>
             <p>{{ card.answer }}</p>
+            <p>{{ card.parts_of_speech }}</p>
         </details>
         <hr/>
         {% include "cards/card_check_form.html" with solved=True %}

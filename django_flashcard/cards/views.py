@@ -23,7 +23,7 @@ class CardListView(ListView):
 #カード作成
 class CardCreateView(CreateView):
     model = Card
-    fields = ["question", "answer", "box"]      #フォームの入力項目
+    fields = ["question", "answer", "parts_of_speech", "box"]      #フォームの入力項目
     success_url = reverse_lazy("card-create")   #s成功時に, ...\card-createのURLにリクエストを返す
 
 #カード更新
@@ -34,7 +34,7 @@ class CardUpdateView(CardCreateView, UpdateView):
 class CardDeleteView(DeleteView):
     model = Card
     #template_name = "cards/card_confirm_delete.html"
-    success_url = reverse_lazy('card-list')
+    success_url = reverse_lazy("card-list")
     
 
 #ボックス

@@ -6,10 +6,14 @@ NUM_BOXES = 5   #カードボックス数
 BOXES = range(1, NUM_BOXES + 1)
 
 class Card(models.Model): 
-    #djangoのモデルフィールドを使って, 質問, 回答, ボックスのフィールドを作成
+    #djangoのモデルフィールドを使って, 質問, 回答, 品詞, ボックスのフィールドを作成
     #モデルフィールドは, データベーステーブルのカラムに相当
     question = models.CharField(max_length=100)             #最大文字数100のchar型field
     answer = models.CharField(max_length=100)               #上に同じ
+    parts_of_speech = models.CharField(                     #上に同じ(ただしデフォルト値あり)
+        default="Not Registered", 
+        max_length=100
+        )
     box = models.IntegerField(                              #カードのボックス番号を記録するフィールド
         choices=zip(BOXES, BOXES),                          #BOX_NUMの範囲内のセレクトボックス
         default=BOXES[0],                                   #デフォルトは最初のボックスに設定
